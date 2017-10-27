@@ -34,7 +34,7 @@ String tagNames = GetterUtil.getString((String)request.getAttribute("liferay-ass
 	<aui:input name="<%= hiddenInput %>" type="hidden" />
 
 	<c:if test="<%= allowAddEntry %>">
-		<textarea class="form-control lfr-tag-selector-textarea" id="<%= id %>assetTagNames" title="<liferay-ui:message key="add-tags" />" name="assetTagNames"></textarea>
+		<textarea class="form-control lfr-tag-selector-textarea" id="<%= id %>assetTagNames" name="assetTagNames" title="<liferay-ui:message key="add-tags" />"></textarea>
 	</c:if>
 </div>
 
@@ -68,10 +68,10 @@ String tagNames = GetterUtil.getString((String)request.getAttribute("liferay-ass
 		}
 	).render();
 
-	var tx = document.getElementsByName('assetTagNames');
+	var assetTagNamesTextArea = document.getElementsByName('assetTagNames');
 
-	tx[0].setAttribute('style', 'height:' + (tx[0].scrollHeight) + 'px;overflow-y:hidden;');
-	tx[0].addEventListener("input", assetTaglibTagsSelector._onInput, false);
+	assetTagNamesTextArea[0].setAttribute('style', 'height:' + (assetTagNamesTextArea[0].scrollHeight) + 'px;overflow-y:hidden;');
+	assetTagNamesTextArea[0].addEventListener("input", assetTaglibTagsSelector._onInput, false);
 
 	Liferay.component('<portlet:namespace />tagsSelector', assetTaglibTagsSelector);
 
